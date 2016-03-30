@@ -1,0 +1,33 @@
+
+<% if flash[:notice] %>
+  <div class="notice"><font color="red"><%= flash[:notice] %></font></div>
+<%end %>
+
+
+<p>
+  <strong>Title: </strong>
+  <%= @item.title %>
+</p>
+
+<p>
+  <strong> Description: </strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong> Price: </strong>
+  <%= @item.price %>
+</p>
+
+<p>
+  <strong> Ends at: </strong>
+  <%= @item.deadline %>
+</p>
+
+<p>
+  <strong> The last bid was made by </strong>
+  <%= User.find(@item.best_bidder_id).first_name %> <%= User.find(@item.best_bidder_id).last_name %>
+</p>
+
+<%= link_to 'Back', items_path %> |
+<%= link_to 'Bid', edit_item_path %>
